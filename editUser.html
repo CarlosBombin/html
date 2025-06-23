@@ -11,41 +11,38 @@
 <body>
     <header>
         <h1>Conciertos y Festivales</h1>
-        <a href="Index.html" class="login-icon">
+        <a href="listEventUser.html" class="login-icon">
             <img src="Imagenes/home.png" alt="Volver al inicio">
         </a>
     </header>
 
     <div class="form-container">
-        <h2>Crear Cuenta</h2>
-        <form action="/signup" method="POST" class="form">
+        <h2>Editar Cuenta</h2>
+        <form action="/editUser" method="POST" class="form">
             <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre">
+                <input type="text" id="nombre" name="nombre" value="Juan">
             </div>
             <div class="form-group">
                 <label for="apellidos">Apellidos</label>
-                <input type="text" id="apellidos" name="apellidos">
+                <input type="text" id="apellidos" name="apellidos" value="Pérez García">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" value="JuanPG@gmail.com">
             </div>
             <div class="form-group">
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" value="1234567890">
             </div>
             <div class="form-group">
                 <label for="password">Vuelva a introducir la contraseña</label>
-                <input type="password" id="password2" name="password2">
+                <input type="password" id="password2" name="password2" value="1234567890">
             </div>
             <div class="form-group">
-                <button type="submit">Registrarse</button>
+                <button type="submit">Editar</button>
             </div>
         </form>
-        <div class="signup">
-            <a href="login.html" class="signup-link">¿Ya tienes una cuenta? Inicia sesión</a>
-        </div>
     </div>
     
     <footer>
@@ -68,46 +65,14 @@
         $(document).ready(function() {
             $('form').on('submit', function(event) {
                 $('input').removeClass('errorField');
-                var name = $('#nombre').val();
-                var lastName = $('#apellidos').val();
                 var email = $('#email').val();
                 var password = $('#password').val();
                 var password2 = $('#password2').val();
                 var isError = false;
 
-                if (name === '') {
-                    alert('Se ha de introducir un nombre.');
-                    $('#nombre').addClass('errorField');
-                    isError = true;
-                }
-
-                if (lastName === '') {
-                    alert('Se ha de introducir un apellido.');
-                    $('#apellidos').addClass('errorField');
-                    isError = true;
-                }
-
-                if (email === '') {
-                    alert('Se ha de introducir un correo.');
-                    $('#email').addClass('errorField');
-                    isError = true;
-                }
-
-                if (password === '') {
-                    alert('Se ha de introducir una contraseña.');
-                    $('#password').addClass('errorField');
-                    isError = true;
-                }
-
                 if (password.length < 10) {
                     alert('La contraseña ha de ser de al menos 10 caracteres.');
                     $('#password').addClass('errorField');
-                    isError = true;
-                }
-
-                if (password2 === '') {
-                    alert('Se ha de introducir una segunda vez la contraseña.');
-                    $('#password2').addClass('errorField');
                     isError = true;
                 }
 
